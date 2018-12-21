@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel='stylesheet' typle='text/css' href="{% static 'polls/style.css' %}"/>
+
+{% if qList %}
+	<ul>
+		{% for q in qList %}
+			<li>
+				<a href="{% url 'polls:detail' q.id %}">{{q.qText}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No polls are available</p>
+{% endif %}
